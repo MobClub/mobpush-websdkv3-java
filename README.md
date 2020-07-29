@@ -1,11 +1,11 @@
-# [MobPush API for Java](http://wiki.mob.com/mobpush-rest-api-接口文档/)
+# [MobPush API for Java](https://www.mob.com/wiki/detailed/?wiki=MobPushRestAPIfenlei1333&id=136)
 
 ![image](https://github.com/MOBX/MOB-SMS-WEBAPI/blob/master/doc/images/logo.png)
 
-**[MobPush API for Java](http://wiki.mob.com/mobpush-rest-api-接口文档/)** 
+**[MobPush API for Java](https://www.mob.com/wiki/detailed/?wiki=MobPushRestAPIfenlei1333&id=136)** 
 为了帮助开发者更方便接入MobPush免费推送SDK，提供完整的API接口的java实现，包含设备操作相关接口、推送操作相关接口以及公共接口。
 
-了解更多 [MobPush 免费推送SDK.](http://mobpush.mob.com)
+了解更多 [MobPush 免费推送SDK.](https://www.mob.com/mobService/mobpush)
 
 
 ## 优势

@@ -14,20 +14,32 @@
 
 # 接口
 * 推送接口
-	* 发送推送
-	* 查询推送（根据batchId）
-	* 查询推送（根据workno）
-* 推送统计接口
-	* 查询推送统计（根据batchId）
-	* 查询推送统计（根据workno）
-* 别名操作接口
-	* 查询别名
-	* 设置别名
-* 标签操作接口
-	* 查询标签
-	* 设置标签
-* 公共接口
-	* 地理位置信息接口	
+	* 发送推送:* 广播推送 pushAll
+	          * 别名推送 pushByAlias
+	          * 用户标签推送 pushByTags
+	          * Registration ID推送 pushByRids
+	          * 复杂地理位置推送 pushByAreas
+	          * 用户自定义配置推送	pushTaskV3         
+	* 查询推送(根据batchId)
+	* 查询推送(根据workno)
+* 推送任务详情查询接口
+	* 查询推送任务详情(根据batchId) getPushByBatchId
+	* 查询推送任务详情(根据workno) getPushByWorkno
+* 推送任务的处理接口
+    * 取消推送任务(根据workId) cancelPushTask
+    * 替换推送任务(根据workId) replacePushTask
+    * 撤回推送任务(根据workId) recallPushTask
+* 查询推送统计接口
+    * 根据推送任务id查询统计 getStatsByWorkId
+    * 根据推送任务id批量查询统计 getStatsByWorkIds
+    * 根据用户id查询统计 getStatsByWorkno
+    * 按小时查询统计 getStatsByHour
+    * 按日期查询统计 getStatsByDay
+    * 根据id查询任务下发给设备的详情统计 getStatsByDevice
+       
+
+
+
 
 # 使用方式
 
@@ -35,45 +47,10 @@
 
 * ## 源码编译
 
-    主要需要依赖httpclient.jar 、fastjson.jar,日志相关包可以按需求使用
+    主要需要依赖httpclient.jar 、fastjson.jar,日志相关包
 
-    下载项目代码后可根据具体项目按照如下方式使用：
+* 如果使用 Maven 构建项目，则需要在你的项目 pom.xml 里增加对应到pom依赖(git中可查看pom)
 
-* 如果使用 Maven 构建项目，则需要在你的项目 pom.xml 里增加：
-
- ```xml
-
-		<dependency>
-			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>httpclient</artifactId>
-			<version>4.5.3</version>
-			<scope>compile</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>1.7.7</version>
-		</dependency> 
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.7.7</version>
-		</dependency>
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.17</version>
-		</dependency>
- 
-		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>fastjson</artifactId>
-			<version>1.2.31</version>
-		</dependency>
-```
-
-* 如果不使用 Maven 构建项目，则项目 libs/ 目录下有依赖的 jar 可复制到你的项目里去。
  
 # 使用注意事项
 * 初始化appkey、appSecret
@@ -93,23 +70,13 @@
 发送推送示例片段代码
 
 ```Java
-
-MobPushConfig.appkey = "moba6b6c6d6";
-MobPushConfig.appSecret = "";
-PushWork push = new PushWork(PlatEnum.all.getCode(),"test content" , PushTypeEnum.notify.getCode()) //初始化基础信息
-				.buildTarget(TargetEnum._1.getCode(), null, null, null, null, null)  // 设置推送范围
-				.buildAndroid("Android Title", AndroidNotifyStyleEnum.normal.getCode(), null, true, true, true) //定制android样式
-				.bulidIos("ios Title", "ios Subtitle", null, 1, null, null, null, null) //定制ios设置
-				.buildExtra(1, "{\"key1\":\"value\"}", 1) // 设置扩展信息
-				;
-		
-PushClient client = new PushClient();
 try {
-    client.sendPush(push);
+    //广播推送
+    PushV3Client.pushAll(workNo,title,content);
  catch (ApiException e) {
     e.getStatus();	   	   //错误请求状态码
     e.getErrorCode();	       //错误状态码
     e.getErrorMessage();        //错误信息 
+    }
 }
-
 ```

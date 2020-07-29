@@ -13,15 +13,13 @@
 **免费使用**、**自定义UI**、**稳定服务**、**流程体验**、**数据同步**、**专业技术团队服务**
 
 # 接口
-* 推送接口
-	* 发送推送:* 广播推送 pushAll
-	          * 别名推送 pushByAlias
-	          * 用户标签推送 pushByTags
-	          * Registration ID推送 pushByRids
-	          * 复杂地理位置推送 pushByAreas
-	          * 用户自定义配置推送	pushTaskV3         
-	* 查询推送(根据batchId)
-	* 查询推送(根据workno)
+* 推送接口:
+	* 广播推送 pushAll
+    * 别名推送 pushByAlias
+    * 用户标签推送 pushByTags
+    * Registration ID推送 pushByRids
+    * 复杂地理位置推送 pushByAreas
+    * 用户自定义配置推送 pushTaskV3         
 * 推送任务详情查询接口
 	* 查询推送任务详情(根据batchId) getPushByBatchId
 	* 查询推送任务详情(根据workno) getPushByWorkno

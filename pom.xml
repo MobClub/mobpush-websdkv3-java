@@ -4,10 +4,10 @@
         xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.mob.sdk.push</groupId>
-    <artifactId>mobpush-api-java-client</artifactId>
+    <artifactId>mobpush-websdkv3-java</artifactId>
     <version>1.0.0</version>
-    <name>mobpush-api-java-client</name>
-    <url>https://github.com/MOBX/mobpush-api-java-client</url>
+    <name>mobpush-websdkv3-java</name>
+    <url>https://github.com/MOBX/mobpush-websdkv3-java</url>
     <description>MobPush API for Java</description>
 
     <!-- <parent> <groupId>org.sonatype.oss</groupId> <artifactId>oss-parent</artifactId>

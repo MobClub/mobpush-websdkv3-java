@@ -53,7 +53,7 @@
 # 使用注意事项
 * 初始化appkey、appSecret
 ```Java
-   MobPushConfig.appkey = "moba6b6c6d6";
+   MobPushConfig.appkey = "";
    MobPushConfig.appSecret = "";
 ```
 以上是使用时设置的方式，还可以直接引用源码在mob.push.api.MobPushConfig设置
@@ -68,9 +68,11 @@
 发送推送示例片段代码
 
 ```Java
+MobPushConfig.appkey = "appkey";
+MobPushConfig.appSecret = "appSecret";
 try {
-    //广播推送
-    PushV3Client.pushAll(workNo,title,content);
+    //Registration ID推送
+    Result<PushV3Res> resResult=PushV3Client.pushByRids("workNo","title","content","rid");
  catch (ApiException e) {
     e.getStatus();	   	   //错误请求状态码
     e.getErrorCode();	       //错误状态码
@@ -78,3 +80,18 @@ try {
     }
 }
 ```
+
+统计查询示例片段代码
+
+```Java
+MobPushConfig.appkey = "appkey";
+MobPushConfig.appSecret = "appSecret";
+try {
+    //根据workId查询统计结果
+    Result<StatsV3Res> resResult=StatsV3Client.getStatsByWorkId("workId");
+ catch (ApiException e) {
+    e.getStatus();	   	   //错误请求状态码
+    e.getErrorCode();	       //错误状态码
+    e.getErrorMessage();        //错误信息 
+    }
+}

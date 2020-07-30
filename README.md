@@ -42,13 +42,17 @@
 # 使用方式
 
 * ## maven集成方式
-
+    pom依赖:
+```Java
+<dependency>
+  <groupId>com.mob.push.sdk</groupId>
+  <artifactId>mobpush-websdkv3-java</artifactId>
+  <version>1.0.0</version>
+</dependency>
+```
 * ## 源码编译
 
     主要需要依赖httpclient.jar 、fastjson.jar,日志相关包
-
-* 如果使用 Maven 构建项目，则需要在你的项目 pom.xml 里增加对应到pom依赖(git中可查看pom)
-
  
 # 使用注意事项
 * 初始化appkey、appSecret
@@ -95,3 +99,4 @@ try {
     e.getErrorMessage();        //错误信息 
     }
 }
+```

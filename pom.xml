@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.mob.sdk.push</groupId>
     <artifactId>mobpush-websdkv3-java</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.0</version>
     <name>mobpush-websdkv3-java</name>
     <url>https://github.com/MOBX/mobpush-websdkv3-java</url>
     <description>MobPush API for Java</description>

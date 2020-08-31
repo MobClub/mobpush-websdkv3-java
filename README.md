@@ -53,7 +53,7 @@
 <dependency>
   <groupId>com.mob.push.sdk</groupId>
   <artifactId>mobpush-websdkv3-java</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.2</version>
 </dependency>
 ```
 * ## 源码编译

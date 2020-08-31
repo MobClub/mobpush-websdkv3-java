@@ -34,7 +34,13 @@
     * 按小时查询统计 getStatsByHour
     * 按日期查询统计 getStatsByDay
     * 根据id查询任务下发给设备的详情统计 getStatsByDevice
-       
+* 设备操作接口
+    * 根据rid查询设备信息接口 getByRid
+    * 查询设备分布情况 getDeviceDistribution
+    * 根据别名查询设备信息 queryByAlias
+    * 更新设备别名 upateByAlias
+    * 更新设备标签 upateByTags
+    * 根据标签查询设备信息 queryByTags          
 
 
 
@@ -47,7 +53,7 @@
 <dependency>
   <groupId>com.mob.push.sdk</groupId>
   <artifactId>mobpush-websdkv3-java</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.2</version>
 </dependency>
 ```
 * ## 源码编译

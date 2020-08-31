@@ -144,6 +144,22 @@ public class Http {
         }
     }
 
+    public static <T> Result<T> get(String url, Map<String, String> headers,String data, Class<T> cls) {
+        if (headers == null) {
+            headers = new HashMap<>();
+        }
+        headers.put("sign", serverSign(data, MobPushConfig.appSecret));
+        headers.put("key", MobPushConfig.appkey);
+        //2.创建Request对象，设置一个url地址（百度地址）,设置请求方式。
+        Request request = new Request.Builder()
+                .url(url)
+                .headers(Headers.of(headers))
+                .get()
+                .build();
+        //3.创建一个call对象,参数就是Request请求对象
+        return callAndGet(CLIENT.newCall(request), cls, null);
+    }
+
     public static StringResult get(String url, Map<String, String> headers) {
         if (headers == null) {
             headers = new HashMap<>();

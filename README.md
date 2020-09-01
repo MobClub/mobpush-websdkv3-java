@@ -38,8 +38,8 @@
     * 根据rid查询设备信息接口 getByRid
     * 查询设备分布情况 getDeviceDistribution
     * 根据别名查询设备信息 queryByAlias
-    * 更新设备别名 upateByAlias
-    * 更新设备标签 upateByTags
+    * 更新设备别名 upateByAlias (逐步废弃，请使用updateAlias)
+    * 更新设备标签 upateByTags (逐步废弃，updateTags)
     * 根据标签查询设备信息 queryByTags          
 
 

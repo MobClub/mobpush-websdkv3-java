@@ -53,7 +53,7 @@
 <dependency>
   <groupId>com.mob.push.sdk</groupId>
   <artifactId>mobpush-websdkv3-java</artifactId>
-  <version>1.0.3</version>
+  <version>1.0.4</version>
 </dependency>
 ```
 * ## 源码编译
@@ -106,3 +106,5 @@ try {
     }
 }
 ```
+*1.0.4版本相对于1.0.3版本新增了定速推送配置(PushNotify.speed)
+

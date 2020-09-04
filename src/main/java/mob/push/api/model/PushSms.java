@@ -1,64 +1,60 @@
 package mob.push.api.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * 短信补量配置
  * @author wuch
  */
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
+@Getter
+@Setter
 public class PushSms implements Serializable {
+    private static final long serialVersionUID = -6141124345583714923L;
 
-    /**
-     * 指定补量范围
-     * 1广播；
-     * 2别名；
-     * 3标签；
-     * 4regid；
-     *
-     * NotNull
-     * Determine(values = {1, 2, 3, 4}, message = "短信补量target错误")
-     */
-    private Integer target;
+    public static final int COMPENSATE_COMMON = 1;
+    public static final int COMPENSATE_FAC_FAIL = 2;
 
     /**
      * 短信模板id
-     * NotEmpty(message = "短信模板id不能为空")
+     * NotEmpty(message = "短信模板id不能为空"
      */
     private String templateId;
 
     /**
-     * 模板自定义参数
-     * 例如：
-     * 模板：【XXX签名】您的收益{income}元已经到账，请及时查收。
-     * templateParams: {"income":"8.8"}
+     * 短信签名
+     * NotEmpty(message = "短信签名不能为空")
      */
-    private Map<String, String> templateParams;
+    private String sign;
 
     /**
-     * 补量别名
+     * 延时秒数
+     * NotNull(message = "短信延时时间不能为空")
+     * Min(value = 10, message = "短信延时时间最短10秒")
      */
-    private Set<String> alias;
+    private Integer delaySeconds = 7200;
 
     /**
-     * 补量tags, 含有这些表情的设备全补量
+     * rid 匹配关系补充
+     * ridPhones 匹配关系优先级大于数据库中存储的匹配关系
      */
-    private Set<String> tags;
+    private Map<String, String> ridPhones;
 
     /**
-     * 补量rid
+     * alias 匹配关系补充
+     * aliasPhones 匹配关系的优先级比 ridPhones 高
      */
-    private Set<String> rids;
+    private Map<String, String> aliasPhones;
+
+    /**
+     * 默认1
+     * 1. tcp和厂商推送都无法走时, 尝试短信下发
+     * 2. 厂商推送失败时, 也走短信下发, 可能会产生较高的短信费用. 例如: 华为关键字黑名单, Vivo限流等
+     */
+    private Integer compensateType = 1;
 
 }
 

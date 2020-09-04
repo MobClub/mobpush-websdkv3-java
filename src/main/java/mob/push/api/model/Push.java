@@ -50,7 +50,7 @@ public class Push implements Serializable {
      * 推送展示细节
      * NotNull(message = "[pushNotify]不能为空")
      */
-    private PushNotify pushNotify=new PushNotify();
+    private PushNotify pushNotify= new PushNotify();
 
     /**
      * 运营保障相关配置
@@ -66,7 +66,7 @@ public class Push implements Serializable {
     /**
      * 短信补量相关配置
      */
-//    protected PushSms pushSms;
+    protected PushSms pushSms;
 
     public static void main(String[] args) {
         Push push = new Push();

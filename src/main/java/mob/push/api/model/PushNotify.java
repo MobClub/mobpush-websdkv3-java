@@ -30,6 +30,15 @@ public class PushNotify implements Serializable {
     protected Long taskTime;
 
     /**
+     * 定速推送, 设置平均每秒推送速度
+     * 0: 不限制
+     * 其他限制速度
+     * 例如: 每秒1条 每秒100条, 建议最小设置为100条
+     * 这个只是模糊的控制, 只保证推送整体上的平均数值, 比如设置为1, 每5秒推送一条
+     */
+    protected Integer speed = 0;
+
+    /**
      * 可使用平台，1 android;2 ios ;3 winphone(暂不使用) ;
      */
     @Builder.Default

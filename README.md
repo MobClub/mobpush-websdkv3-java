@@ -19,7 +19,8 @@
     * 用户标签推送 pushByTags
     * Registration ID推送 pushByRids
     * 复杂地理位置推送 pushByAreas
-    * 用户自定义配置推送 pushTaskV3         
+    * 用户自定义配置推送 pushTaskV3
+    * 别名和rid批量推送 pushMulti         
 * 推送任务详情查询接口
 	* 查询推送任务详情(根据batchId) getPushByBatchId
 	* 查询推送任务详情(根据workno) getPushByWorkno
@@ -38,9 +39,9 @@
     * 根据rid查询设备信息接口 getByRid
     * 查询设备分布情况 getDeviceDistribution
     * 根据别名查询设备信息 queryByAlias
-    * 更新设备别名 upateByAlias (逐步废弃，请使用updateAlias)
-    * 更新设备标签 upateByTags (逐步废弃，updateTags)
-    * 根据标签查询设备信息 queryByTags          
+    * 更新设备别名 updateAlias (updateByAlias已经废弃)
+    * 更新设备标签 updateTags (upateByTags已经废弃)
+    * 根据标签查询设备信息 queryByTags   
 
 
 
@@ -53,7 +54,7 @@
 <dependency>
   <groupId>com.mob.push.sdk</groupId>
   <artifactId>mobpush-websdkv3-java</artifactId>
-  <version>1.0.4</version>
+  <version>2.0.0</version>
 </dependency>
 ```
 * ## 源码编译
@@ -107,4 +108,4 @@ try {
 }
 ```
 *1.0.4版本相对于1.0.3版本新增了定速推送配置(PushNotify.speed)
-
+*2.0.0版本相对于1.0.4版本去掉了updateByAlias,upateByTags无效方法

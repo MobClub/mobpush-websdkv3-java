@@ -8,6 +8,7 @@ import mob.push.api.http.Http;
 import mob.push.api.http.Result;
 import mob.push.api.model.*;
 import mob.push.api.res.CancelWorkRes;
+import mob.push.api.res.PushMultiRes;
 import mob.push.api.res.PushTaskV3Res;
 import mob.push.api.res.PushV3Res;
 import java.util.HashMap;
@@ -23,6 +24,7 @@ public class PushV3Client {
     public static final String CANCEL_TASK_URI = "/push/drop";
     public static final String REPLACE_TASK_URI = "/push/replace";
     public static final String RECALL_TASK_URI = "/push/recall";
+    public static final String PUSH_MULTI = "/v3/push/createMulti";
 
 
     public static Result<PushV3Res> pushTaskV3(Push push) {
@@ -107,6 +109,12 @@ public class PushV3Client {
         PushTaskV3Res pushTaskV3Res=new PushTaskV3Res();
         Result<PushTaskV3Res> result =Http.getResult(params,pushTaskV3Res,GET_BY_WORKNO_URI );
         return result;
+    }
+
+    public static Result<PushMultiRes> pushMulti(PushMulti pushMulti) {
+        pushMulti.getPushWork().setAppkey(MobPushConfig.appkey);
+        return Http.post(MobPushConfig.baseUrl + PUSH_MULTI,
+                null, JSON.toJSONString(pushMulti), PushMultiRes.class);
     }
 
 

@@ -19,10 +19,7 @@ public class DeviceV3Client {
 
     public static final String GET_BY_RID = "/device-v3/getById/";
     public static final String GET_DEVICE_DISTRIBUTION = "/device-v3/distribution/";
-    public static final String GET_BY_ALIAS = "/device-v3/getByAlias//";
-    public static final String UPDATE_BY_ALIAS = "/device-v3/upateByAlias/";
-    public static final String UPDATE_BY_TAGS = "/device-v3/upateByTags";
-
+    public static final String GET_BY_ALIAS = "/device-v3/getByAlias/";
     public static final String UPDATE_ALIAS = "/device-v3/updateAlias/";
     public static final String UPDATE_TAGS = "/device-v3/updateTags";
     public static final String QUERY_BY_TAGS = "/device-v3/queryByTags";
@@ -62,22 +59,6 @@ public class DeviceV3Client {
         return result;
     }
 
-
-    @Deprecated
-    public static Result<DeviceRes> updateByAlias(String alias, String registrationId){
-        DeviceAliasReq deviceAliasReq=DeviceAliasReq.builder()
-                .appkey(MobPushConfig.appkey)
-                .alias(alias)
-                .registrationId(registrationId)
-                .build();
-        Result<DeviceRes> result = Http.post(MobPushConfig.baseUrl + UPDATE_BY_ALIAS,
-                null, JSON.toJSONString(deviceAliasReq), DeviceRes.class);
-        if (!result.success()) {
-            throw new ApiException(result);
-        }
-        return result;
-    }
-
     public static Result<DeviceRes> updateAlias(String alias, String registrationId){
         DeviceAliasReq deviceAliasReq=DeviceAliasReq.builder()
                 .appkey(MobPushConfig.appkey)
@@ -86,22 +67,6 @@ public class DeviceV3Client {
                 .build();
         Result<DeviceRes> result = Http.post(MobPushConfig.baseUrl + UPDATE_ALIAS,
                 null, JSON.toJSONString(deviceAliasReq), DeviceRes.class);
-        if (!result.success()) {
-            throw new ApiException(result);
-        }
-        return result;
-    }
-
-    @Deprecated
-    public static Result<DeviceRes> upateByTags(String[] tags, String registrationId, Integer opType){
-        DeviceTagsReq deviceTagsReq=DeviceTagsReq.builder()
-                .appkey(MobPushConfig.appkey)
-                .tags(tags)
-                .registrationId(registrationId)
-                .opType(opType)
-                .build();
-        Result<DeviceRes> result = Http.post(MobPushConfig.baseUrl + UPDATE_BY_TAGS,
-                null, JSON.toJSONString(deviceTagsReq), DeviceRes.class);
         if (!result.success()) {
             throw new ApiException(result);
         }

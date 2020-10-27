@@ -53,6 +53,11 @@ public class Push implements Serializable {
     private PushNotify pushNotify= new PushNotify();
 
     /**
+     * 厂商定制化配置
+     */
+    private PushFactoryExtra pushFactoryExtra;
+
+    /**
      * 运营保障相关配置
      */
     @Builder.Default

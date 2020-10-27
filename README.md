@@ -54,7 +54,7 @@
 <dependency>
   <groupId>com.mob.push.sdk</groupId>
   <artifactId>mobpush-websdkv3-java</artifactId>
-  <version>2.0.0</version>
+  <version>2.0.1</version>
 </dependency>
 ```
 * ## 源码编译
@@ -107,5 +107,5 @@ try {
     }
 }
 ```
-*1.0.4版本相对于1.0.3版本新增了定速推送配置(PushNotify.speed)
-*2.0.0版本相对于1.0.4版本去掉了updateByAlias,upateByTags无效方法
+* 2.0.1版本相对于2.0.0版本添加了厂商定制化配置(PushFactoryExtra)
+

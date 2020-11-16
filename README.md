@@ -54,7 +54,7 @@
 <dependency>
   <groupId>com.mob.push.sdk</groupId>
   <artifactId>mobpush-websdkv3-java</artifactId>
-  <version>2.0.1</version>
+  <version>2.0.2</version>
 </dependency>
 ```
 * ## 源码编译
@@ -107,5 +107,5 @@ try {
     }
 }
 ```
-* 2.0.1版本相对于2.0.0版本添加了厂商定制化配置(PushFactoryExtra)
+* 2.0.2版本相对于2.0.1版本补充了vivo厂商定制化配置(VivoExtra)
 

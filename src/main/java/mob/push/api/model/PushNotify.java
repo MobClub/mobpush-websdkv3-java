@@ -39,6 +39,13 @@ public class PushNotify implements Serializable {
     protected Integer speed = 0;
 
     /**
+     * 推送时, 跳过在线设备, 不对在线设备做推送
+     * 1: 开启
+     * 其他: 关闭
+     */
+    protected Integer skipOnline;
+
+    /**
      * 可使用平台，1 android;2 ios ;3 winphone(暂不使用) ;
      */
     @Builder.Default

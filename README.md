@@ -54,7 +54,7 @@
 <dependency>
   <groupId>com.mob.push.sdk</groupId>
   <artifactId>mobpush-websdkv3-java</artifactId>
-  <version>2.0.2</version>
+  <version>2.0.3</version>
 </dependency>
 ```
 * ## 源码编译
@@ -107,5 +107,5 @@ try {
     }
 }
 ```
-* 2.0.2版本相对于2.0.1版本添加了skipOnline入参(可支持设备在线时，不给设备进行推送)
+* 2.0.3版本相对于2.0.2版本添加了skipOnline入参(可支持设备在线时，不给设备进行推送)
 

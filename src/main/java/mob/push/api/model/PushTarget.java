@@ -80,4 +80,9 @@ public class PushTarget implements Serializable {
 //    protected List<PushSmsSupply> smsSupply;
 
     protected PushAreas pushAreas;
+    
+    /**
+     * 推送的应用包名，多包名
+     */
+    protected List<String> appPackages;
 }

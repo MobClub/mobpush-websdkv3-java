@@ -23,7 +23,7 @@ public class PushTarget implements Serializable {
     public static final int TARGET_TAGS = 3;
     public static final int TARGET_RIDS = 4;
     public static final int TARGET_AREA = 5;
-    public static final int TARGET_LABEL = 5;
+    public static final int TARGET_LABEL = 7;
     public static final int TARGET_SMS = 8;
     public static final int TARGET_AREAS = 9;
     private static final long serialVersionUID = 3205738723648870635L;
@@ -80,4 +80,9 @@ public class PushTarget implements Serializable {
 //    protected List<PushSmsSupply> smsSupply;
 
     protected PushAreas pushAreas;
+    
+    /**
+     * 推送的应用包名，多包名
+     */
+    protected List<String> appPackages;
 }
